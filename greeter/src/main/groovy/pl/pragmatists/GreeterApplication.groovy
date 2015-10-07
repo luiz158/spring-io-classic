@@ -24,7 +24,7 @@ class GreeterApplication {
     @RequestMapping('/{who}')
     def greet(@PathVariable who) {
         return [
-            greeting: "${greetingTextProperties.start}${who}${greetingTextProperties.end}".toString(),
+            greeting : "${greetingTextProperties.start} ${who} ${greetingTextProperties.end}".toString(),
             timestamp: new Date()
         ]
     }
