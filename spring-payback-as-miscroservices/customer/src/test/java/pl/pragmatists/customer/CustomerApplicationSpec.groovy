@@ -30,7 +30,7 @@ class CustomerApplicationSpec extends Specification {
         mvc = webAppContextSetup(webApplicationContext).build()
     }
 
-    def "find customer by credit card"() {
+    def "find no customer if credit card is not provided"() {
         when:
         ResultActions result = mvc
             .perform(get("/customer"))
@@ -38,12 +38,38 @@ class CustomerApplicationSpec extends Specification {
 
         then:
         result
+            .andExpect(status().isBadRequest())
+            .andExpect(status().reason("No credit card provided"))
+    }
+
+    def "find no customer by credit card if no such user exist"() {
+        when:
+        ResultActions result = mvc
+            .perform(get("/customer?creditCard=notExistingCreditCard"))
+            .andDo(print());
+
+        then:
+        result
+            .andExpect(status().isNotFound())
+            .andExpect(status().reason("No user found with credit card 'notExistingCreditCard'"))
+    }
+
+    def "find no customer by credit card"() {
+        when:
+        def creditCard = "123abc"
+        ResultActions result = mvc
+            .perform(get("/customer?creditCard={creditCard}", creditCard))
+            .andDo(print());
+
+        then:
+        // TODO Dummy data is provided here. To be replaced with insertion to 'database'.
+        result
             .andExpect(status().isOk())
             .andExpect(content().json(
             new JsonBuilder([
                 firstName : 'Paweł',
                 lastName  : 'Barszcz',
-                creditCard: '123abc'
+                creditCard: creditCard
             ]).toString()))
     }
 }
