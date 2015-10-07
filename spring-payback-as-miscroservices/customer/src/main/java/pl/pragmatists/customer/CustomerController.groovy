@@ -10,6 +10,10 @@ class CustomerController {
 
     @RequestMapping(method = GET, value = '/customer')
     def findByCreditCard() {
-        return [abc: 'sdsds']
+        return new Customer(
+            firstName: 'Paweł',
+            lastName: 'Barszcz',
+            creditCard: '123abc'
+        )
     }
 }
