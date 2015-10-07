@@ -1,5 +1,6 @@
 package pl.pragmatists
 
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.web.bind.annotation.PathVariable
@@ -14,10 +15,16 @@ class GreeterApplication {
         SpringApplication.run GreeterApplication, args
     }
 
+    @Value('${greeting.text.start}')
+    String greetingStart
+
+    @Value('${greeting.text.end}')
+    String greetingEnd
+
     @RequestMapping('/{who}')
     def greet(@PathVariable who) {
         return [
-            greeting : "Hello $who!".toString(),
+            greeting: "${greetingStart}${who}${greetingEnd}".toString(),
             timestamp: new Date()
         ]
     }
