@@ -7,12 +7,14 @@ import org.springframework.boot.actuate.health.HealthIndicator
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.properties.ConfigurationProperties
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient
 import org.springframework.context.annotation.Bean
 import org.springframework.context.event.ContextRefreshedEvent
 import org.springframework.context.event.EventListener
 import org.springframework.stereotype.Component
 
 @EnableAutoConfiguration
+@EnableDiscoveryClient
 @SpringBootApplication
 class CustomerApplication {
 

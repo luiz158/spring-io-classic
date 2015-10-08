@@ -1,0 +1,17 @@
+server:
+  port: 9001
+spring:
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///home/pawelbarszcz/workspace/spring-microservices-workshop/spring-payback-as-miscroservices/config-repository
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://registry1:9009/eureka/

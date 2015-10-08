@@ -1,3 +1,10 @@
 info:
   some-message.to-you: Hello! Message here
   some-another-message: to-you=Hello! Another message here
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://registry1:9009/eureka/

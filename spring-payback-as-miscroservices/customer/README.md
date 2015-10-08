@@ -10,10 +10,11 @@ Port was `8080` by default but after adding remote configuration
 basic run
 ---------
 
-1. Run `./mvnw clean package exec:java` from `../configuration` directory
-2. `./mvnw clean package exec:java` in this directory
-3. Go to [http://localhost:9002/env]()
-4. Go to [http://localhost:9002/customer?creditCard=123abc]()
+1. Go to `../configuration` directory and run app according to `README.md`
+2. Go to `../registry` directory and run app according to `README.md`
+3. `./mvnw clean package exec:java` in this directory
+4. Go to [http://localhost:9002/env]()
+5. Go to [http://localhost:9002/customer?creditCard=123abc]()
 
 
 Actuator endpoints
