@@ -1,6 +1,8 @@
 greeter
 =======
 
+Project generated with help of [http://start.spring.io/]()
+
 basic setup
 -----------
 

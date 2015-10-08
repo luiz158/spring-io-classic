@@ -1,6 +1,8 @@
 registry
 ========
 
+Project generated with help of [http://start.spring.io/]()
+
 Uses Eureka from Netflix.
 
 1. `./mvnw clean package`

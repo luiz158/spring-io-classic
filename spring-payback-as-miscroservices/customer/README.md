@@ -1,6 +1,8 @@
 customer microservice
 =====================
 
+Project generated with help of [http://start.spring.io/]()
+
 Port was `8080` by default but after adding remote configuration
  it is provided by this configuration.
  In result port is `9002`.
