@@ -1,0 +1,9 @@
+some:
+  property:
+    visible:
+      everywhere: value
+
+same:
+  property:
+    defined:
+      everywhere: no profile

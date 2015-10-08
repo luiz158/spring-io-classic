@@ -1,0 +1,9 @@
+property:
+  defined:
+    for:
+      profile: first profile
+
+same:
+  property:
+    defined:
+      everywhere: first profile
