@@ -15,3 +15,7 @@ customerProps:
 
 server:
   port: 9002
+
+eureka:
+  instance:
+    nonSecurePort: ${server.port}
