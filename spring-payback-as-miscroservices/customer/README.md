@@ -24,4 +24,13 @@ Actuator endpoints
 * [http://localhost:8080/metrics]()
    * You can add more metrics by using `CounterService` or `GaugeService`
    
+Remote shell
+------------
+
+1. `ssh -p 2000 user@localhost`
+2. Password is in startup logs. For example in line `Using default password for shell access: e4476fac-57c8-4777-8b13-07cd5729b1ba`
+3. Inside you can run commands similar to Actuator endpoints. And many more.
+   * You can show help by typing `help`.
+   * Interesting thing is `dashboard`. You can quit dashboard by typing `q` :-P
+   * You can use Groovy REPL: `repl groovy` and type `System.exit(1)` :-D
 
