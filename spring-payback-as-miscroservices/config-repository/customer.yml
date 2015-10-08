@@ -10,5 +10,8 @@ info:
       defined:
         everywhere: no profile
 
+customerProps:
+  firstNameSuffix: suffix to be added
+
 server:
   port: 9002

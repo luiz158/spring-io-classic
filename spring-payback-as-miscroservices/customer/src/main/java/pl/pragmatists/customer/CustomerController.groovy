@@ -23,12 +23,16 @@ class CustomerController {
     CounterService counterService;
     @Autowired
     GaugeService gaugeService;
+    @Autowired
+    CustomerProperties customerProperties
 
     @RequestMapping(method = GET, value = '/customer')
     def findByCreditCard(@RequestParam(required = false) String creditCard) {
         counterService.increment('some.counter.value')
         gaugeService.submit("some.gauge.value", new Random().nextDouble())
-        return customerService.findByCreditCard(creditCard)
+        def customer = customerService.findByCreditCard(creditCard)
+        customer.firstName += customerProperties.firstNameSuffix
+        return customer
     }
 
     @ExceptionHandler(CustomerService.CreditCardNotProvidedException)

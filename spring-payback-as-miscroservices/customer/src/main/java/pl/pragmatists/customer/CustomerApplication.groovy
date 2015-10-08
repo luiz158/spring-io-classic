@@ -6,9 +6,11 @@ import org.springframework.boot.actuate.health.Health
 import org.springframework.boot.actuate.health.HealthIndicator
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.event.ContextRefreshedEvent
 import org.springframework.context.event.EventListener
+import org.springframework.stereotype.Component
 
 @EnableAutoConfiguration
 @SpringBootApplication
@@ -27,18 +29,33 @@ class CustomerApplication {
             Health.outOfService().build()
         }
     }
+}
+
+@Component
+class DbPopulator {
+
+    @Autowired
+    CustomerRepository customerRepository
 
     @EventListener(ContextRefreshedEvent)
     void populateDb() {
         customerRepository.save(new Customer(
-            firstName: 'Paweł',
+            firstName: "Paweł",
             lastName: 'Barszcz',
             creditCard: '123abc'
         ))
         customerRepository.save(new Customer(
-            firstName: 'Ola',
+            firstName: "Ola",
             lastName: 'Barszcz',
             creditCard: 'xyz'
         ))
     }
+
+}
+
+@ConfigurationProperties(prefix = 'customerProps')
+@Component
+class CustomerProperties {
+
+    def firstNameSuffix
 }
