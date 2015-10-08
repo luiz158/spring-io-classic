@@ -33,4 +33,6 @@ Remote shell
    * You can show help by typing `help`.
    * Interesting thing is `dashboard`. You can quit dashboard by typing `q` :-P
    * You can use Groovy REPL: `repl groovy` and type `System.exit(1)` :-D
+   * In REPL you can also use code from beans, eg. `context.attributes['spring.beanfactory'].getBean('customerService').customers[0].firstName`
+   * You can add your own commands by providing them in `resources/commands`. I've provided sample command `firstCustomer.groovy`
 
