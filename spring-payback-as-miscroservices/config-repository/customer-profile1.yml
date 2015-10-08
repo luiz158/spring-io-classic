@@ -1,9 +1,11 @@
-property:
-  defined:
-    for:
-      profile: first profile
+info:
 
-same:
   property:
     defined:
-      everywhere: first profile
+      for:
+        profile: first profile
+
+  same:
+    property:
+      defined:
+        everywhere: first profile

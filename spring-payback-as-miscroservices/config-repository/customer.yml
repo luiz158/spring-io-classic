@@ -1,9 +1,14 @@
-some:
-  property:
-    visible:
-      everywhere: value
+info:
 
-same:
-  property:
-    defined:
-      everywhere: no profile
+  some:
+    property:
+      visible:
+        everywhere: value
+
+  same:
+    property:
+      defined:
+        everywhere: no profile
+
+server:
+  port: 9002

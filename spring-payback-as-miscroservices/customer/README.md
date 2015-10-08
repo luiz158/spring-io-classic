@@ -1,33 +1,37 @@
 customer microservice
 =====================
 
+Port was `8080` by default but after adding remote configuration
+ it is provided by this configuration.
+ In result port is `9002`.
+
 basic run
 ---------
 
 1. Run `CustomerApplication` from IntelliJ IDEA
-2. Go to [http://localhost:8080/customer?creditCard=123abc]()
+2. Go to [http://localhost:9002/customer?creditCard=123abc]()
 
 Actuator endpoints
 ------------------
 
-* [http://localhost:8080/mappings]()
-* [http://localhost:8080/health]()
+* [http://localhost:9002/mappings]()
+* [http://localhost:9002/health]()
   You can add more health info by implementing more beans, eg. `DataSourceHealthIndicator`.
   But remember that resulting health info at `/health` is aggregated. 
-* [http://localhost:8080/beans]()
-* [http://localhost:8080/info]()
+* [http://localhost:9002/beans]()
+* [http://localhost:9002/info]()
   You can add more info by adding `info.something` property
-* [http://localhost:8080/env]()
+* [http://localhost:9002/env]()
    * env variables
    * active profiles
    * `info` properties from both `classpath:/application.properties` and `classpath:/config/application.properties`
-   * specific endpoints for variables, eg. [http://localhost:8080/env/JAVA_HOME]()
-* [http://localhost:8080/autoconfig]()
+   * specific endpoints for variables, eg. [http://localhost:9002/env/JAVA_HOME]()
+* [http://localhost:9002/autoconfig]()
    Info about matching of beans to conditions.
-* [http://localhost:8080/trace]()
+* [http://localhost:9002/trace]()
    * last N requests
    * You can adjust trace info by implementing `TraceRepository`
-* [http://localhost:8080/metrics]()
+* [http://localhost:9002/metrics]()
    * You can add more metrics by using `CounterService` or `GaugeService`
    
 Remote shell

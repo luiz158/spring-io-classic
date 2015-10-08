@@ -19,3 +19,7 @@ You can fetch resolved final properties at:
 * [http://localhost:9001/customer-profile2.yml]()
 
 In link above both `yml` and `properties` extensions are recognized and output is formatted properly.
+
+To see that `customer` microservices has found remote configuration
+ go to [http://localhost:9002/info]() to see properties provided
+ by configuration.

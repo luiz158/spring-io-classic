@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.actuate.health.Health
 import org.springframework.boot.actuate.health.HealthIndicator
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.Bean
 import org.springframework.context.event.ContextRefreshedEvent
 import org.springframework.context.event.EventListener
 
+@EnableAutoConfiguration
 @SpringBootApplication
 class CustomerApplication {
 
