@@ -22,5 +22,6 @@ Actuator endpoints
    * last N requests
    * You can adjust trace info by implementing `TraceRepository`
 * [http://localhost:8080/metrics]()
+   * You can add more metrics by using `CounterService` or `GaugeService`
    
 

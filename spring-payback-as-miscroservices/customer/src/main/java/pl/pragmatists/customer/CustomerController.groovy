@@ -1,6 +1,8 @@
 package pl.pragmatists.customer
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.actuate.metrics.CounterService
+import org.springframework.boot.actuate.metrics.GaugeService
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -17,9 +19,15 @@ class CustomerController {
 
     @Autowired
     CustomerService customerService
+    @Autowired
+    CounterService counterService;
+    @Autowired
+    GaugeService gaugeService;
 
     @RequestMapping(method = GET, value = '/customer')
     def findByCreditCard(@RequestParam(required = false) String creditCard) {
+        counterService.increment('some.counter.value')
+        gaugeService.submit("some.gauge.value", new Random().nextDouble())
         return customerService.findByCreditCard(creditCard)
     }
 
