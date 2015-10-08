@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    active: peer1
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+---
+
+spring:
+  profiles: peer1
+
+server:
+  port: 9009
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+---
+
+
+spring:
+  profiles: peer2
+
+server:
+  port: 9010
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:9009/eureka/
