@@ -26,6 +26,11 @@ class CustomerController {
     @Autowired
     CustomerProperties customerProperties
 
+    @RequestMapping(method = GET, value = '/customers')
+    def findAll() {
+        return customerService.findAll()
+    }
+
     @RequestMapping(method = GET, value = '/customer')
     def findByCreditCard(@RequestParam(required = false) String creditCard) {
         counterService.increment('some.counter.value')

@@ -9,6 +9,10 @@ class CustomerService {
     @Autowired
     CustomerRepository customerRepository
 
+    List<Customer> findAll() {
+        return customerRepository.findAll()
+    }
+
     Customer findByCreditCard(String creditCard) {
         if (!creditCard) {
             throw new CreditCardNotProvidedException()
