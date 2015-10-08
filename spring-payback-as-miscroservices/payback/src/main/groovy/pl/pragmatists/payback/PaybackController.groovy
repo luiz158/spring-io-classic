@@ -1,4 +1,4 @@
-package pl.pragmatists.merchant
+package pl.pragmatists.payback
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestMapping
@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RestController
 import static org.springframework.web.bind.annotation.RequestMethod.GET
 
 @RestController
-class MerchantController {
+class PaybackController {
 
     @Autowired
-    MerchantService merchantService
+    PaybackService paybackService
 
-    @RequestMapping(method = GET, value = '/merchants')
+    @RequestMapping(method = GET, value = '/paybacks')
     def findAll() {
-        return merchantService.findAll()
+        return paybackService.findAll()
     }
 }

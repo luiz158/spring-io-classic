@@ -1,0 +1,10 @@
+# IntelliJ IDEA project files
+*.iml
+.idea/
+
+# Java
+build files
+target/
+
+# Maven Wrapper
+.mvn

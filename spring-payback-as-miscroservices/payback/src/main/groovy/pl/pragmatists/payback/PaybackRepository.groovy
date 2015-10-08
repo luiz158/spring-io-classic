@@ -1,8 +1,8 @@
-package pl.pragmatists.merchant
+package pl.pragmatists.payback
 
 import groovy.transform.CompileStatic
 import org.springframework.data.jpa.repository.JpaRepository
 
 @CompileStatic
-interface MerchantRepository extends JpaRepository<Merchant, Long> {
+interface PaybackRepository extends JpaRepository<Payback, Long> {
 }
