@@ -16,3 +16,4 @@ run
 4. Go to [http://registry1:9009/]() and check that `payback` is registered.
 5. Go to [http://localhost:9004/env]()
 6. Go to [http://localhost:9004/paybacks]()
+7. Go to [http://localhost:9004/discover/homepage/config]() (or '/merchant' or '/customer')
