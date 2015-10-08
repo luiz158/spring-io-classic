@@ -1,4 +1,4 @@
-package pl.pragmatists;
+package pl.pragmatists.configuration;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

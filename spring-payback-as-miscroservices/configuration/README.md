@@ -1,6 +1,9 @@
 configuration
 =============
 
+1. `./mvnw clean package exec:java`
+2. Go to [http://localhost:9001/env]()
+
 Server with configuration for other microservices.
  
 * Properties are stored in `config-repository` directory.
