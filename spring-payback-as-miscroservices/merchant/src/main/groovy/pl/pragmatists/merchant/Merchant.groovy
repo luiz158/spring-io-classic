@@ -1,4 +1,4 @@
-package pl.pragmatists.customer
+package pl.pragmatists.merchant
 
 import groovy.transform.ToString
 
@@ -8,15 +8,18 @@ import javax.persistence.Id
 
 @Entity
 @ToString
-class Customer {
+class Merchant {
 
     @Id
     @GeneratedValue
     Long id;
 
-    String firstName
+    String name
 
-    String lastName
+    BigDecimal percentage
 
-    String creditCard
+    BigDecimal minAmount
+
+    BigDecimal maxPayback
+
 }
