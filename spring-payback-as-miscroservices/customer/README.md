@@ -1,6 +1,12 @@
 customer microservice
 =====================
 
+basic run
+---------
+
+1. Run `CustomerApplication` from IntelliJ IDEA
+2. Go to [http://localhost:8080/customer?creditCard=123abc]()
+
 Actuator endpoints
 ------------------
 

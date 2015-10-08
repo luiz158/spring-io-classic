@@ -1,28 +1,19 @@
 package pl.pragmatists.customer
 
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
 class CustomerService {
 
-    static Iterable<Customer> customers = new ArrayList<>()
-
-    static {
-        // TODO Dummy data is provided here. To be removed.
-        customers.add(new Customer(
-            firstName: 'Paweł',
-            lastName: 'Barszcz',
-            creditCard: '123abc'
-        ))
-    }
+    @Autowired
+    CustomerRepository customerRepository
 
     Customer findByCreditCard(String creditCard) {
         if (!creditCard) {
             throw new CreditCardNotProvidedException()
         }
-        return customers.stream()
-            .filter({ customer -> customer.creditCard == creditCard })
-            .findFirst()
+        return Optional.ofNullable(customerRepository.findByCreditCard(creditCard))
             .orElseThrow({ -> new UserNotFoundException("No user found with credit card '${creditCard}'") })
     }
 
