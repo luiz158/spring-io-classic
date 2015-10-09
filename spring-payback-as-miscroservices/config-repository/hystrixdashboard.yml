@@ -4,5 +4,5 @@ server:
 turbine:
   aggregator:
     clusterConfig: workshopCluster
-  appConfig: payback
+  appConfig: payback,gateway
   clusterNameExpression: metadata['workshopCluster']
