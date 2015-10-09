@@ -12,4 +12,18 @@ class MerchantService {
     Iterable<Merchant> findAll() {
         return merchantRepository.findAll()
     }
+
+    Merchant findById(Long id) {
+        return merchantRepository.findAll()
+            .stream()
+            .filter({ merchant -> merchant.id == id })
+            .findFirst()
+            .orElseThrow({ -> new MerchantNotFoundException("No merchant found with id '${id}'") })
+    }
+}
+
+class MerchantNotFoundException extends Exception {
+    MerchantNotFoundException(String reason) {
+        super(reason)
+    }
 }
