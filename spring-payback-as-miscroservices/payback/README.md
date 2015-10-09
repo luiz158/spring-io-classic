@@ -24,3 +24,6 @@ run
 10. Go to [http://localhost:9004/receivers/123abc]()
 11. Go to [http://localhost:9004/givers]()
 12. Go to [http://localhost:9004/givers/1]()
+13. Add some purchase to see stored paybacks:
+    * make POST to [http://localhost:9004/purchases/123abc/1/150]()
+    * go again to [http://localhost:9004/paybacks]() to see new paybacks

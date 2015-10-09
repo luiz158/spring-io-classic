@@ -29,13 +29,13 @@ class DbPopulator {
     void populateDb() {
         merchantRepository.save(new Merchant(
             name: 'Empik',
-            percentage: new BigDecimal(25.0),
+            percentage: new BigDecimal(0.25),
             minAmount: new BigDecimal(10.0),
             maxPayback: new BigDecimal(50.0)
         ))
         merchantRepository.save(new Merchant(
             name: 'BP',
-            percentage: new BigDecimal(8.0),
+            percentage: new BigDecimal(0.08),
             minAmount: new BigDecimal(123.0),
             maxPayback: new BigDecimal(98.0)
         ))
