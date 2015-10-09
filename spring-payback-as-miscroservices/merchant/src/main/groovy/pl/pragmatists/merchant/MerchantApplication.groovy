@@ -5,9 +5,9 @@ import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient
-import org.springframework.context.event.ContextRefreshedEvent
-import org.springframework.context.event.EventListener
 import org.springframework.stereotype.Component
+
+import javax.annotation.PostConstruct
 
 @EnableAutoConfiguration
 @EnableDiscoveryClient
@@ -25,7 +25,7 @@ class DbPopulator {
     @Autowired
     MerchantRepository merchantRepository
 
-    @EventListener(ContextRefreshedEvent)
+    @PostConstruct
     void populateDb() {
         merchantRepository.save(new Merchant(
             name: 'Empik',

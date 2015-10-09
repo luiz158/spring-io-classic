@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
-import pl.pragmatists.payback.customer.Customer
-import pl.pragmatists.payback.customer.CustomerClient
+import pl.pragmatists.payback.remote.CustomerClient
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET
 
@@ -33,13 +32,13 @@ class PaybackController {
         return instances?.first()?.getHomePageUrl()
     }
 
-    @RequestMapping(method = GET, value = '/delegated/customers')
-    List<Customer> findAllCustomers() {
+    @RequestMapping(method = GET, value = '/remote/customers')
+    List<PaybackReceiver> findAllCustomers() {
         return customerClient.findAll()
     }
 
-    @RequestMapping(method = GET, value = '/delegated/customer')
-    Customer findCustomerByCreditCard(@RequestParam(required = true) String creditCard) {
+    @RequestMapping(method = GET, value = '/remote/customer')
+    PaybackReceiver findCustomerByCreditCard(@RequestParam(required = true) String creditCard) {
         return customerClient.findCustomerByCreditCard(creditCard)
     }
 }

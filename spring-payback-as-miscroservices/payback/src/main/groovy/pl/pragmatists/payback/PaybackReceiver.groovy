@@ -1,15 +1,12 @@
-package pl.pragmatists.payback.customer
+package pl.pragmatists.payback
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class Customer {
+class PaybackReceiver {
 
     Long id;
 
-    String firstName
-
-    String lastName
-
     String creditCard
+
 }

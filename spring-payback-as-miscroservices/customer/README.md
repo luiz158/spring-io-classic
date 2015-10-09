@@ -13,7 +13,7 @@ run
 1. Go to `../configuration` directory and run app according to `README.md`
 2. Go to `../registry` directory and run app according to `README.md`
 3. `./mvnw clean package exec:java` in this directory
-4. Go to [http://registry1:9009/]() and check that `merchant` is registered.
+4. Go to [http://registry1:9009/]() and check that `customer` is registered.
 5. Go to [http://localhost:9002/env]()
 6. Go to [http://localhost:9002/customers]()
 7. Go to [http://localhost:9002/customer?creditCard=123abc]()

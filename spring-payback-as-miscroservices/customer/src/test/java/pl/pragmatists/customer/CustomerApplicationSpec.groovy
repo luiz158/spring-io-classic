@@ -7,6 +7,7 @@ import org.springframework.boot.test.WebIntegrationTest
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.servlet.ResultActions
 import org.springframework.web.context.WebApplicationContext
+import spock.lang.Ignore
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -54,7 +55,8 @@ class CustomerApplicationSpec extends Specification {
             .andExpect(status().reason("No user found with credit card 'notExistingCreditCard'"))
     }
 
-    def "find no customer by credit card"() {
+    @Ignore
+    def "find customer by credit card"() {
         when:
         def creditCard = "123abc"
         ResultActions result = mvc

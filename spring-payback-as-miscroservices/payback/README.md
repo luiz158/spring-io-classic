@@ -17,7 +17,5 @@ run
 5. Go to [http://localhost:9004/env]()
 6. Go to [http://localhost:9004/paybacks]()
 7. Go to [http://localhost:9004/discover/homepage/config]() (or '/merchant' or '/customer')
-8. If you have run `customer` microservices then go to [http://localhost:9004/delegated/customers]()
-9. If you have run `customer` microservices then go to [http://localhost:9004/delegated/customer?creditCard=123abc]()
-
-Sadly, last two points are not working at the moment :-(
+8. If you have run `customer` microservices then go to [http://localhost:9004/remote/customers]()
+9. If you have run `customer` microservices then go to [http://localhost:9004/remote/customer?creditCard=123abc]()

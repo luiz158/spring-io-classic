@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient
 import org.springframework.cloud.netflix.feign.EnableFeignClients
-import org.springframework.context.event.ContextRefreshedEvent
-import org.springframework.context.event.EventListener
 import org.springframework.stereotype.Component
+
+import javax.annotation.PostConstruct
 
 @EnableAutoConfiguration
 @EnableDiscoveryClient
@@ -27,7 +27,7 @@ class DbPopulator {
     @Autowired
     PaybackRepository paybackRepository
 
-    @EventListener(ContextRefreshedEvent)
+    @PostConstruct
     void populateDb() {
         paybackRepository.save(new Payback(
             customerId: 123,
