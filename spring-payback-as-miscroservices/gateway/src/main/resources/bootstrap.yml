@@ -13,3 +13,4 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://registry1:9009/eureka/
+
