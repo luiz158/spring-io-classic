@@ -8,13 +8,13 @@ run
 
 1. `./mvnw clean package exec:java`
 2. Test authorization manually:
-   * Go to [http://localhost:8080/uaa/oauth/authorize?client_id=acme&redirect_uri=http://127.0.1.1:9999/login&response_type=code]()
+   * Go to [http://localhost:9876/uaa/oauth/authorize?client_id=acme&redirect_uri=http://127.0.1.1:9999/login&response_type=code]()
      `http://127.0.1.1:9999/login` needs to point to any of working services ()just something up and running), so I;ve put URL of Gateway here
    * Sample user and password are `user`/`password`. Type them, submit, then click `Approve`.
    * Copy code from new URL which appears in browser. Eg. `5zsc0t` if URL is [http://127.0.1.1:9999/login?code=5zsc0t]()
      Code is valid for one usage (to obtain authoriation token).
    * Make request with CURL to obtain access token. Code should be appropriate. Redirect URI should be same as before.
-     `curl acme:acmesecret@localhost:8080/uaa/oauth/token -d grant_type=authorization_code -d redirect_uri=http://127.0.1.1:9999/login -d code=hSfP9X`
+     `curl acme:acmesecret@localhost:9876/uaa/oauth/token -d grant_type=authorization_code -d redirect_uri=http://127.0.1.1:9999/login -d code=hSfP9X`
    * Go to [http://jwt.io/]() and:
        * paste access token
        * paste public key of our sample authorization server:

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: authserver
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: config
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://registry1:9009/eureka/
+
