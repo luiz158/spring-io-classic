@@ -1,0 +1,6 @@
+server:
+  port: 9090
+
+eureka:
+  instance:
+    nonSecurePort: ${server.port}
