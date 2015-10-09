@@ -26,4 +26,12 @@ testing
    * kill `customer` microservice
    * do POST to [http://localhost:9004/purchases/123abc/1/150]()
    * run `customer` microservice
+   
+Turbine aggregation
+-------------------
+
+1. Aggregated Hystrix streams are available at [http://localhost:9090/turbine.stream?cluster=workshopCluster]()
+2. You can see them in Hystrix Dashboard by adding [http://localhost:9090/turbine.stream?cluster=workshopCluster]() to monitor in dashboard
+
+Sadly, Turbine is not working properly on `localhost` :-(
 

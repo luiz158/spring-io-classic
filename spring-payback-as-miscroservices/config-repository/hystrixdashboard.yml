@@ -1,6 +1,8 @@
 server:
   port: 9090
 
-eureka:
-  instance:
-    nonSecurePort: ${server.port}
+turbine:
+  aggregator:
+    clusterConfig: workshopCluster
+  appConfig: payback
+  clusterNameExpression: metadata['workshopCluster']
