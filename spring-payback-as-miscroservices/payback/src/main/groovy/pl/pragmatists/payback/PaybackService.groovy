@@ -3,8 +3,7 @@ package pl.pragmatists.payback
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import pl.pragmatists.payback.purchase.Purchase
-import pl.pragmatists.payback.remote.CustomerClient
-import pl.pragmatists.payback.remote.MerchantClient
+import pl.pragmatists.payback.remote.IntegrationClient
 
 import static java.math.BigDecimal.ZERO
 import static java.math.MathContext.DECIMAL32
@@ -15,9 +14,7 @@ class PaybackService {
     @Autowired
     PaybackRepository paybackRepository
     @Autowired
-    MerchantClient merchantClient
-    @Autowired
-    CustomerClient customerClient
+    IntegrationClient integrationClient
 
     Iterable<Payback> findAll() {
         return paybackRepository.findAll()
@@ -25,7 +22,7 @@ class PaybackService {
 
     void addPaybackFor(Purchase purchase) {
         BigDecimal paybackAmount = paybackAmountFor(purchase)
-        PaybackReceiver receiver = customerClient.findCustomerByCreditCard(purchase.creditCardNumber)
+        PaybackReceiver receiver = integrationClient.findReceiverByCreditCard(purchase.creditCardNumber)
         paybackRepository.save(new Payback(
             customerId: receiver.id,
             amount: paybackAmount
@@ -33,7 +30,7 @@ class PaybackService {
     }
 
     BigDecimal paybackAmountFor(Purchase purchase) {
-        PaybackGiver giver = merchantClient.findMerchantById(purchase.merchantId)
+        PaybackGiver giver = integrationClient.findGiverMerchantById(purchase.merchantId)
         return Optional.<Purchase> of(purchase)
             .filter { it -> giver.percentage != null && it.amount != null }
             .filter { it -> giver.minAmount == null || giver.minAmount.compareTo(it.amount) <= 0 }

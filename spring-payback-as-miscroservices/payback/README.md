@@ -27,3 +27,22 @@ run
 13. Add some purchase to see stored paybacks:
     * make POST to [http://localhost:9004/purchases/123abc/1/150]()
     * go again to [http://localhost:9004/paybacks]() to see new paybacks
+    
+Hystrix integration
+-------------------
+
+1. Add purchase: POST [http://localhost:9004/purchases/123abc/1/150]()
+2. See paybacks: GET [http://localhost:9004/paybacks]()
+3. Kill `customer` service
+4. Add purchase: POST [http://localhost:9004/purchases/123abc/1/150]()
+   Should take a while because of timeouts
+5. Add purchase: POST [http://localhost:9004/purchases/123abc/1/150]()
+   Should response immediately because Hystrix has broken circuit
+6. See paybacks: GET [http://localhost:9004/paybacks]()
+   You should see 2 more paybacks for dummy customer `99999`. It's thanks to fallback methods provoded by us to Hystrix
+7. Run `customer` service
+8. Wait for some time becuase Hystrix will try to close circuit after longer timeout (30 or 60 seconds?)
+9. Add purchase: POST [http://localhost:9004/purchases/123abc/1/150]()
+10. See paybacks: GET [http://localhost:9004/paybacks]()
+    You should see 1 more proper payback
+11. See logs at [http://localhost:9004/hystrix.stream]()
